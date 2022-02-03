@@ -38,6 +38,12 @@ PROJECT_RELATIVE_PATH=$(cat "${PROJECT_RELATIVE_PATH_FILE}")
 PROJECT_PATH="${BUILD_DIR}/${PROJECT_RELATIVE_PATH}"
 PROJECT_NAME=$(basename "${PROJECT_PATH}")
 
+for i in $ENV_DIR/EXTRA_DIRS_*; do
+    echo i
+    cat i
+done
+exit 1
+
 [ -d "${PROJECT_PATH}" ] || die "PROJECT_RELATIVE_PATH: ${PROJECT_RELATIVE_PATH} does not exist"
 
 mkdir -p "${CACHE_DIR}"
