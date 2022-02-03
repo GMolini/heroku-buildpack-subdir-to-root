@@ -49,6 +49,7 @@ msg "Created temp directory: ${TMP_DIR}"
 msg "Moving subdir: ${PROJECT_RELATIVE_PATH} to temp dir: ${TMP_DIR}"
 mv "${PROJECT_PATH}" "${TMP_DIR}"
 ls -la "${TMP_DIR}"
+ls -la "${TMP_DIR}/vue_web"
 pwd
 
 msg "Also moving subdir: ${PROJECT_RELATIVE_PATH}../src_common to temp dir: ${TMP_DIR}"
