@@ -58,13 +58,8 @@ mv "${PROJECT_PATH}" "${TMP_DIR}"
 ls -la "${TMP_DIR}"
 ls -la "${TMP_DIR}/vue_web"
 pwd
-msg "----"
-ls -la "${PROJECT_PATH}"
-msg "----====="
-ls -la "${PROJECT_PATH}../"
-
 msg "Also moving subdir: /app/src_common to temp dir: ${TMP_DIR}"
-mv "/app/src_common" "${TMP_DIR}"
+mv "${BUILD_DIR}/src_common" "${TMP_DIR}"
 ls -la "${TMP_DIR}"
 
 msg "Cleaning build directory"
