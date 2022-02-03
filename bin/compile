@@ -38,28 +38,11 @@ PROJECT_RELATIVE_PATH=$(cat "${PROJECT_RELATIVE_PATH_FILE}")
 PROJECT_PATH="${BUILD_DIR}/${PROJECT_RELATIVE_PATH}"
 PROJECT_NAME=$(basename "${PROJECT_PATH}")
 
-for i in $ENV_DIR/EXTRA_DIR_*; do
-    echo "---$i---"
-    echo $(cat "${i}")
-    EXTRA_DIR_RELATIVE_PATH=$(cat "${i}")
-    EXTRA_DIR_PATH="${BUILD_DIR}/${EXTRA_DIR_RELATIVE_PATH}"
-    echo $EXTRA_DIR_PATH
-done
 exit 1
 
 [ -d "${PROJECT_PATH}" ] || die "PROJECT_RELATIVE_PATH: ${PROJECT_RELATIVE_PATH} does not exist"
 
 mkdir -p "${CACHE_DIR}"
-msg "env dir ${ENV_DIR}"
-ls -la $BUILD_DIR
-msg "1: ${1}"
-msg "2: ${2}"
-msg "3: ${3}"
-exit 1
-msg  "project_path: ${PROJECT_PATH}"
-msg "relative_path: ${PROJECT_RELATIVE_PATH}"
-msg  "name: ${PROJECT_NAME}"
-msg  "CACHE_DIR: ${CACHE_DIR}"
 
 msg "Creating temp directory"
 
@@ -68,13 +51,15 @@ msg "Created temp directory: ${TMP_DIR}"
 
 msg "Moving subdir: ${PROJECT_RELATIVE_PATH} to temp dir: ${TMP_DIR}"
 mv "${PROJECT_PATH}" "${TMP_DIR}"
-ls -la "${TMP_DIR}"
-ls -la "${TMP_DIR}/vue_web"
-pwd
-msg "Also moving subdir: /app/src_common to temp dir: ${TMP_DIR}"
-mv "${BUILD_DIR}/src_common" "${TMP_DIR}"
-ls -la "${TMP_DIR}"
-ls -la "${TMP_DIR}/src_common"
+
+msg "Move extra dirs to temp dir"
+for i in $ENV_DIR/EXTRA_DIR_*; do
+    echo "---$i---"
+    echo $(cat "${i}")
+    EXTRA_DIR_RELATIVE_PATH=$(cat "${i}")
+    EXTRA_DIR_PATH="${BUILD_DIR}/${EXTRA_DIR_RELATIVE_PATH}"
+    mv "${EXTRA_DIR_PATH}" "${TMP_DIR}"
+done
 
 msg "Cleaning build directory"
 rm -rf "${BUILD_DIR}"/*
