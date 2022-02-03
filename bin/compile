@@ -61,10 +61,12 @@ pwd
 msg "Also moving subdir: /app/src_common to temp dir: ${TMP_DIR}"
 mv "${BUILD_DIR}/src_common" "${TMP_DIR}"
 ls -la "${TMP_DIR}"
+ls -la "${TMP_DIR}/src_common"
 
 msg "Cleaning build directory"
 rm -rf "${BUILD_DIR}"/*
 
+msg "moving this files ${TMP_DIR}/${PROJECT_NAME}/*"
 msg "Moving project directory from ${TMP_DIR} to ${BUILD_DIR}"
 mv "${TMP_DIR}/${PROJECT_NAME}"/* "${BUILD_DIR}"
 rm -rf "${TMP_DIR}"
