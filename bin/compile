@@ -69,6 +69,8 @@ rm -rf "${BUILD_DIR}"/*
 msg "moving this files ${TMP_DIR}/*"
 msg "Moving project directory from ${TMP_DIR} to ${BUILD_DIR}"
 mv "${TMP_DIR}"/* "${BUILD_DIR}"
+ls -la $BUILD_DIR
+
 rm -rf "${TMP_DIR}"
 
 exit 0
