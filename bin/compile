@@ -43,7 +43,7 @@ for i in $ENV_DIR/EXTRA_DIR_*; do
     echo $(cat "${i}")
     EXTRA_DIR_RELATIVE_PATH=$(cat "${i}")
     EXTRA_DIR_PATH="${BUILD_DIR}/${EXTRA_DIR_RELATIVE_PATH}"
-    echo EXTRA_DIR_PATH
+    echo $EXTRA_DIR_PATH
 done
 exit 1
 
