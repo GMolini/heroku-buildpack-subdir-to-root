@@ -39,8 +39,8 @@ PROJECT_PATH="${BUILD_DIR}/${PROJECT_RELATIVE_PATH}"
 PROJECT_NAME=$(basename "${PROJECT_PATH}")
 
 for i in $ENV_DIR/EXTRA_DIR_*; do
-    echo $i
-    cat $i
+    echo "---$i---"
+    cat $(cat "${i}")
 done
 exit 1
 
