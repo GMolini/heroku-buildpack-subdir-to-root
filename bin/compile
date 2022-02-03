@@ -56,7 +56,7 @@ ls -la "${TMP_DIR}/vue_web"
 pwd
 
 msg "Also moving subdir: ${PROJECT_RELATIVE_PATH}../src_common to temp dir: ${TMP_DIR}"
-mv "src_common/" "${TMP_DIR}"
+mv "/app/src_common/" "${TMP_DIR}"
 ls -la "${TMP_DIR}"
 
 msg "Cleaning build directory"
