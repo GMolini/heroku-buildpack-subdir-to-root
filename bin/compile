@@ -40,7 +40,7 @@ PROJECT_NAME=$(basename "${PROJECT_PATH}")
 
 for i in $ENV_DIR/EXTRA_DIR_*; do
     echo $i
-    echo $(cat "${PROJECT_RELATIVE_PATH_FILE}")
+    cat $i
 done
 exit 1
 
