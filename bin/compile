@@ -40,14 +40,15 @@ PROJECT_NAME=$(basename "${PROJECT_PATH}")
 [ -d "${PROJECT_PATH}" ] || die "PROJECT_RELATIVE_PATH: ${PROJECT_RELATIVE_PATH} does not exist"
 
 mkdir -p "${CACHE_DIR}"
-
+msg  "project_path: ${PROJECT_PATH}"
+msg "relative_path: ${PROJECT_RELATIVE_PATH}"
 msg "Creating temp directory"
 TMP_DIR=$(mktemp -d "${CACHE_DIR}/subrootXXXXX")
 msg "Created temp directory: ${TMP_DIR}"
 
 msg "Moving subdir: ${PROJECT_RELATIVE_PATH} to temp dir: ${TMP_DIR}"
 mv "${PROJECT_PATH}" "${TMP_DIR}"
-msg ls -la "${TMP_DIR}"
+ls -la "${TMP_DIR}"
 
 msg "Also moving subdir: ${PROJECT_RELATIVE_PATH}../src_common to temp dir: ${TMP_DIR}"
 mv "${PROJECT_PATH}../src_common" "${TMP_DIR}"
