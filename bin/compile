@@ -42,7 +42,10 @@ PROJECT_NAME=$(basename "${PROJECT_PATH}")
 mkdir -p "${CACHE_DIR}"
 msg  "project_path: ${PROJECT_PATH}"
 msg "relative_path: ${PROJECT_RELATIVE_PATH}"
+msg  "name: ${PROJECT_NAME}"
+
 msg "Creating temp directory"
+
 TMP_DIR=$(mktemp -d "${CACHE_DIR}/subrootXXXXX")
 msg "Created temp directory: ${TMP_DIR}"
 
